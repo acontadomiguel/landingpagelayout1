@@ -1,0 +1,747 @@
+/* ========================================
+   Date Square Animated Border Glow
+======================================== */
+
+@keyframes borderHeroGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(30,58,138,0.10), 0 0 8px 1px #3b82f633;
+    border-color: #18809f;
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(30,58,138,0.14), 0 0 14px 3px #3b82f64d;
+    border-color: #95c5d4;
+  }
+}
+
+/* Date square float and glow (like service cards) */
+
+.vertical-date {
+  will-change: transform, box-shadow, border-color;
+  transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+  animation: borderHeroGlow 3s ease-in-out infinite;
+}
+
+.vertical-date:hover {
+  animation: cardFloat 0.6s ease-in-out, borderHeroGlow 1.2s ease-in-out infinite;
+  box-shadow: 0 8px 40px rgba(59, 130, 246, 0.2), 0 0 32px 8px #3b82f6aa;
+  transform: translateY(-10px) scale(1.04);
+}
+/* ========================================
+   Premium Animation System
+   Advanced animations and micro-interactions
+======================================== */
+
+/* ========================================
+   Utility Animation Classes
+======================================== */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out forwards;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 1s ease-out forwards;
+}
+
+/* Animation delays for staggered effects */
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+.animate-delay-700 { animation-delay: 0.7s; }
+.animate-delay-800 { animation-delay: 0.8s; }
+
+/* ========================================
+   Page Load Animations
+======================================== */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-loaded {
+  animation: pageLoad 0.8s ease-out forwards;
+}
+
+/* ========================================
+   Hero Section Animations
+======================================== */
+@keyframes heroTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(25px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+.hero-title {
+  animation: heroTextReveal 1.2s ease-out forwards;
+}
+
+.title-highlight {
+  animation: heroGlow 3s ease-in-out infinite;
+}
+
+/* ========================================
+   Button Hover Animations
+======================================== */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+@keyframes buttonShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.cta-button:hover::after {
+  left: 100%;
+}
+
+.cta-button.primary:hover {
+  animation: buttonPulse 1s ease-out;
+}
+
+/* ========================================
+   Card Animations
+======================================== */
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cardGlow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(59, 130, 246, 0.2);
+  }
+}
+
+.course-card,
+.feature-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.course-card:hover,
+.feature-card:hover {
+  animation: cardFloat 0.6s ease-in-out;
+}
+
+.course-card.featured {
+  animation: cardGlow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Icon Animations
+======================================== */
+@keyframes iconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes iconBounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.feature-icon {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  animation: iconPulse 0.6s ease-in-out;
+}
+
+.nav-cta:hover {
+  animation: iconBounce 0.8s ease-in-out;
+}
+
+/* ========================================
+   Text Animations
+======================================== */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: typewriter 3s steps(30) 1s forwards,
+             blink 0.8s infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(245, 158, 11, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+  }
+}
+
+.promo-price {
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Scroll Animations
+======================================== */
+@keyframes scrollReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  animation: scrollReveal 0.8s ease-out forwards;
+}
+
+/* ========================================
+   Navigation Animations
+======================================== */
+@keyframes navSlideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes navSlideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.navbar {
+  animation: navSlideDown 0.5s ease-out;
+}
+
+.navbar.hide {
+  animation: navSlideUp 0.3s ease-out forwards;
+}
+
+/* Mobile menu animations */
+@keyframes mobileMenuSlide {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.nav-menu.mobile {
+  animation: mobileMenuSlide 0.4s ease-out;
+}
+
+/* ========================================
+   Progress Indicators
+======================================== */
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1e40af, #f59e0b);
+  z-index: 9999;
+  transition: width 0.3s ease;
+}
+
+/* ========================================
+   Loading States
+======================================== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.skeleton {
+  background: #e5e7eb;
+  border-radius: 4px;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   Interactive Elements
+======================================== */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple-effect:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ========================================
+   Magnetic Effects
+======================================== */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.magnetic:hover {
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   Parallax Effects
+======================================== */
+@keyframes parallaxFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.parallax-element {
+  animation: parallaxFloat 6s ease-in-out infinite;
+}
+
+.parallax-element:nth-child(2n) {
+  animation-delay: -2s;
+}
+
+.parallax-element:nth-child(3n) {
+  animation-delay: -4s;
+}
+
+/* ========================================
+   Stagger Animations
+======================================== */
+.stagger-animate > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.stagger-animate.active > *:nth-child(1) {
+  animation: fadeInUp 0.6s ease-out 0.1s forwards;
+}
+
+.stagger-animate.active > *:nth-child(2) {
+  animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+.stagger-animate.active > *:nth-child(3) {
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+}
+
+.stagger-animate.active > *:nth-child(4) {
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+.stagger-animate.active > *:nth-child(5) {
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+}
+
+.stagger-animate.active > *:nth-child(6) {
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+/* ========================================
+   Micro-interactions
+======================================== */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+.wiggle:hover {
+  animation: wiggle 0.8s ease-in-out;
+}
+
+/* ========================================
+   Focus and Accessibility Animations
+======================================== */
+@keyframes focusRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0);
+  }
+}
+
+*:focus {
+  animation: focusRing 0.6s ease-out;
+}
+
+/* ========================================
+   Performance Optimized Animations
+======================================== */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* ========================================
+   Reduced Motion Preferences
+======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .parallax-element,
+  .heartbeat,
+  .bounce,
+  .pulse {
+    animation: none !important;
+  }
+}
+
+/* ========================================
+   Dark Mode Animations
+======================================== */
+@media (prefers-color-scheme: dark) {
+  @keyframes darkModeGlow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+  }
+  
+  .title-highlight {
+    animation: darkModeGlow 3s ease-in-out infinite;
+  }
+}
+
+/* ========================================
+   High Performance Animations
+======================================== */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.contain-layout {
+  contain: layout;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+/* ========================================
+   Custom Easing Functions
+======================================== */
+.ease-out-back {
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ease-in-back {
+  transition-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56);
+}
+
+.ease-in-out-back {
+  transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.ease-out-elastic {
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ========================================
+   Animation States
+======================================== */
+.is-animating {
+  pointer-events: none;
+}
+
+.animation-paused {
+  animation-play-state: paused;
+}
+
+.animation-running {
+  animation-play-state: running;
+}
+
+/* ========================================
+   Complex Keyframe Animations
+======================================== */
+@keyframes complexEntry {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg) scale(0.5);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(25px) rotateX(45deg) scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+}
+
+.complex-entry {
+  animation: complexEntry 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes morphShape {
+  0% {
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(0deg);
+  }
+  25% {
+    border-radius: 60% 40% 60% 40%;
+    transform: rotate(90deg);
+  }
+  50% {
+    border-radius: 40% 60% 40% 60%;
+    transform: rotate(180deg);
+  }
+  75% {
+    border-radius: 60% 40% 60% 40%;
+    transform: rotate(270deg);
+  }
+  100% {
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(360deg);
+  }
+}
+
+.morph-shape {
+  animation: morphShape 4s ease-in-out infinite;
+}
